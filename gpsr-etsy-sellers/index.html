@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Etsy GPSR Requirements for EU Buyers: Label &amp; Listing Checklist | GPSR Shield</title>
+<meta name="description" content="Etsy sellers outside the EU: what GPSR (EU) 2023/988 requires on your product, parcel and listing: manufacturer, EU responsible person, batch number, warnings. Free label generator and copy-paste listing text.">
+<link rel="canonical" href="https://humayuntalib.github.io/gpsr-shield/gpsr-etsy-sellers/">
+<meta property="og:title" content="Etsy GPSR Requirements for EU Buyers: Label &amp; Listing Checklist | GPSR Shield">
+<meta property="og:description" content="Etsy sellers outside the EU: what GPSR (EU) 2023/988 requires on your product, parcel and listing: manufacturer, EU responsible person, batch number, warnings. Free label generator and copy-paste listing text.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://humayuntalib.github.io/gpsr-shield/gpsr-etsy-sellers/">
+<meta name="theme-color" content="#1F2A44">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231F2A44' stroke='%23C8A24A' stroke-width='2'/%3E%3Ctext x='16' y='20' font-size='10' font-family='monospace' fill='%23C8A24A' text-anchor='middle'%3EEU%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/app.css">
+<style id="page-style"></style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GPSR Shield","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://humayuntalib.github.io/gpsr-shield/gpsr-etsy-sellers/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is GPSR?","acceptedAnswer":{"@type":"Answer","text":"The General Product Safety Regulation (EU) 2023/988 replaced the old General Product Safety Directive on 13 December 2024. It applies to consumer products sold to people in the EU — including online sales from outside the EU."}},{"@type":"Question","name":"I'm a US/UK/Asian seller. Do I really need an EU responsible person?","acceptedAnswer":{"@type":"Answer","text":"If the manufacturer is not established in the EU, GPSR Art. 16 says the product can only be placed on the EU market if there is an economic operator established in the EU responsible for it (for example an importer, an authorised representative or a fulfilment service provider). Their name, postal and electronic address go on the product, packaging, parcel or accompanying document, and in your online listing."}},{"@type":"Question","name":"What must my online listing show?","acceptedAnswer":{"@type":"Answer","text":"Art. 19: the manufacturer's name, registered trade name or trademark, postal and electronic address; the EU responsible person's details where the manufacturer is outside the EU; information to identify the product (picture, type, other identifier); and warnings or safety information, in a language consumers in that Member State easily understand."}},{"@type":"Question","name":"How do I import the Shopify CSV?","acceptedAnswer":{"@type":"Answer","text":"First create product metafield definitions (Settings → Custom data → Products) with namespace \"custom\" and the keys in the CSV header (e.g. gpsr_manufacturer_name). Then Products → Import, tick \"Overwrite products with matching handles\". Replace the handle with your real product handle, and test on one product first after exporting a backup."}},{"@type":"Question","name":"Does using this tool make me compliant?","acceptedAnswer":{"@type":"Answer","text":"No tool can do that on its own. GPSR also requires a risk analysis, technical documentation, accident reporting and cooperation with authorities. This tool helps you prepare the label and listing information and shows what's missing. It is not legal advice."}},{"@type":"Question","name":"Is my data stored?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser. Your last entries are kept in your browser's local storage so you don't lose them; use Reset to clear."}}]}</script>
+</head>
+<body data-category="general">
+<header class="bar"><div class="wrap">
+  <a class="brand" href="../"><span class="seal">EU</span>GPSR Shield <small>by Bunai Studio</small></a>
+  <nav><a href="#tool">Free tool</a><a href="#kit">Pro kit</a><a href="#faq">FAQ</a></nav>
+</div></header>
+
+<main>
+<section class="intro"><div class="wrap">
+  <span class="eyebrow">Etsy sellers · shipping to the EU &amp; Northern Ireland</span>
+  <h1>Etsy GPSR: label &amp; listing checklist</h1>
+  <p>If EU or Northern Ireland buyers can order from your Etsy shop, GPSR applies to those sales. Etsy gives you places in the listing to enter product safety details, but it does not decide what they should be. Fill the fields here, then copy the listing text and print the label for the parcel.</p>
+</div></section>
+
+<div class="wrap"><div class="tool" id="tool">
+<form id="gpsr-form" autocomplete="on" onsubmit="return false">
+  <fieldset><legend><span>Product</span><span class="n">01</span></legend>
+    <label class="f">Product name<input type="text" name="productName" placeholder="e.g. Soy wax candle — Cedar 200 g" maxlength="120"></label>
+    <div class="row">
+      <label class="f">Category<select name="category" id="category"></select></label>
+      <label class="f">Type / batch / serial no.<input class="mono" type="text" name="identifier" placeholder="e.g. CND-CED-200 · LOT 2411" maxlength="80"></label>
+    </div>
+    <div class="row">
+      <label class="f">Materials<input type="text" name="materials" placeholder="e.g. soy wax, cotton wick, glass jar" maxlength="160"></label>
+      <label class="f">Country of origin<select name="origin" id="origin"></select></label>
+    </div>
+    <div id="cat-notes" class="notes"></div>
+  </fieldset>
+
+  <fieldset><legend><span>Manufacturer</span><span class="n">02</span></legend>
+    <label class="f">Name, registered trade name or trademark<input type="text" name="mfrName" placeholder="e.g. Northwick Candle Co. LLC" maxlength="120"></label>
+    <label class="f">Postal address<input type="text" name="mfrAddress" placeholder="Street, city, postcode, country" maxlength="200"></label>
+    <div class="row">
+      <label class="f">Country where manufacturer is established<select name="mfrCountry" id="mfrCountry"></select></label>
+      <label class="f">Electronic address<input type="text" name="mfrEmail" placeholder="email or website" maxlength="120"></label>
+    </div>
+  </fieldset>
+
+  <fieldset id="rp-box"><legend><span>EU responsible person</span><span class="n">03</span></legend>
+    <p class="hint" id="rp-note" style="margin:0 0 10px;font-size:13px;color:var(--red)"></p>
+    <label class="f">Name<span class="hint">EU importer, authorised representative or fulfilment service provider</span><input type="text" name="rpName" placeholder="e.g. EU Rep Services B.V." maxlength="120"></label>
+    <label class="f">EU postal address<input type="text" name="rpAddress" placeholder="Street, city, postcode, EU country" maxlength="200"></label>
+    <label class="f">Electronic address<input type="text" name="rpEmail" placeholder="email or website" maxlength="120"></label>
+  </fieldset>
+
+  <fieldset><legend><span>Safety information</span><span class="n">04</span></legend>
+    <label class="f">Warnings &amp; safety information<span class="hint">One per line. Must be in the language of each country you sell to.</span><textarea name="warnings" maxlength="900"></textarea></label>
+    <label class="f" style="margin-bottom:6px">Languages provided</label>
+    <div class="langs" id="langs"></div>
+  </fieldset>
+
+  <fieldset><legend><span>Documentation</span><span class="n">05</span></legend>
+    <div class="checks">
+      <label class="cb"><input type="checkbox" name="hasPhoto"><span>My listing shows a product photo and the type/identifier</span></label>
+      <label class="cb"><input type="checkbox" name="hasTechFile"><span>I have technical documentation with an internal risk analysis</span></label>
+      <div id="cat-checks" class="checks"></div>
+    </div>
+  </fieldset>
+  <button type="button" class="btn-link" id="btn-reset">Reset all fields</button>
+</form>
+
+<aside class="pane" aria-label="Live preview">
+  <div class="card">
+    <div class="card-h"><span>Live label preview</span><select class="size" id="size" aria-label="Label size"></select></div>
+    <div class="stage" id="label-stage"></div>
+  </div>
+  <div class="card">
+    <div class="card-h"><span>GPSR checklist</span><span class="badge no" id="ready">—</span></div>
+    <div class="card-b">
+      <div class="score"><div class="meter"><i id="meter"></i></div><span class="mono" id="score">0/0</span></div>
+      <ul class="cl" id="cl"></ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-h"><span>Export</span></div>
+    <div class="card-b">
+      <div class="actions">
+        <button class="btn dark" id="btn-print" type="button">Print / save label as PDF</button>
+        <button class="btn" id="btn-csv" type="button">Shopify metafield CSV</button>
+        <button class="btn" id="btn-copy" type="button">Copy listing text</button>
+      </div>
+      <div class="toast" id="toast" role="status"></div>
+      <pre class="out" id="listing"></pre>
+    </div>
+  </div>
+</aside>
+</div></div>
+
+<section class="section"><div class="wrap article">
+  <span class="eyebrow">What the label needs</span>
+  <h2>Etsy GPSR — required information</h2>
+  <table><thead><tr><th>Item</th><th>Rule</th><th>Where / how</th></tr></thead><tbody>
+  <tr><td>Manufacturer name, postal &amp; electronic address</td><td class="mono">GPSR Art. 9(6) · Art. 19(a)</td><td>On the product, packaging or an accompanying document, and in the listing</td></tr><tr><td>EU responsible person (if you are outside the EU)</td><td class="mono">GPSR Art. 16 · Art. 19(b)</td><td>Name, postal and electronic address, also shown in the listing</td></tr><tr><td>Product identification: picture, type, batch or SKU</td><td class="mono">GPSR Art. 9(5) · Art. 19(c)</td><td>Your listing photos plus a type/batch code on the item or packaging</td></tr><tr><td>Warnings and safety information</td><td class="mono">GPSR Art. 19(d)</td><td>In a language buyers in that country easily understand</td></tr><tr><td>Marketplace must let you enter these details</td><td class="mono">GPSR Art. 22(7)</td><td>This is why marketplaces added product safety fields to listings</td></tr>
+  </tbody></table>
+  <h2>Handmade does not mean exempt</h2><p>GPSR covers consumer products whether they are handmade, vintage or mass-produced. Some sector rules (toys, cosmetics, electrical goods) come on top of it; see the category pages for those.</p><h2>The responsible person is the hard part</h2><p>If your business is outside the EU, the product needs an economic operator established in the EU: an importer, an authorised representative or a fulfilment service provider. This tool cannot provide one. It formats their details once you have them, and flags the label as incomplete until you do.</p><h2>Northern Ireland</h2><p>GPSR also applies in Northern Ireland under the Windsor Framework, so UK sellers shipping to NI buyers need the same information, even though Great Britain itself is not covered.</p><h2>Where to enter it on Etsy</h2><p>Etsy's menus change, so follow Etsy's own help article on EU product safety for the exact fields. Use the &quot;Copy listing text&quot; button below to paste the same block into the listing description as well.</p><h2>Not legal advice</h2><p>This page summarises the GPSR articles it cites. Check the official text or a qualified adviser for your products.</p>
+</div></section>
+<section class="section" id="kit"><div class="wrap">
+  <div class="offer">
+    <div>
+      <span class="eyebrow" style="color:var(--brass)">GPSR Compliance &amp; Label Kit</span>
+      <h2>Labelling 200 SKUs? Do it in one import.</h2>
+      <p>The free tool handles one product. The kit handles your catalogue:</p>
+      <ul>
+        <li>Offline bulk label printer — load one CSV, print labels for every SKU (A4 21-up or thermal)</li>
+        <li>Fillable PDF label templates: A4 63.5 × 38.1 mm sheets, 100 × 150 mm and 57 × 32 mm thermal</li>
+        <li>Shopify metafield CSV template, definition guide &amp; a Liquid snippet that shows GPSR info on product pages</li>
+        <li>Technical file checklist, risk-assessment template and incident log (GPSR Art. 9)</li>
+        <li>Category warning library for candles, apparel, toys, jewelry, cosmetics, electronics, home</li>
+      </ul>
+    </div>
+    <div>
+      <div class="price">$39<small>one-time · instant download</small></div>
+      <p style="margin:12px 0 16px">Delivered by Gumroad. English templates — add your own translations per country.</p>
+      <a class="btn primary" href="https://enzopk.gumroad.com/l/gpsr-kit?utm_source=gpsr-shield&amp;utm_medium=site&amp;utm_campaign=gpsr-etsy-sellers&amp;utm_content=buy">Get the GPSR Kit →</a>
+      <p class="promo" data-until="2026-12-02T07:59:00Z" style="margin:12px 0 0;font-size:14px">Cyber Week: <span class="mono">CYBER30</span> takes 30% off at checkout until 1 Dec.</p><script>(function(){var p=document.currentScript.previousElementSibling;if(Date.now()>Date.parse(p.dataset.until))p.remove();})()</script>
+      <p style="margin:12px 0 0;font-size:14px">Not ready to buy? <a href="https://enzopk.gumroad.com/l/gpsr-free?utm_source=gpsr-shield&amp;utm_medium=site&amp;utm_campaign=gpsr-etsy-sellers&amp;utm_content=free-pack" style="color:var(--brass);text-decoration:underline">Get the free starter pack</a> (checklist + 4×6 label PDF).</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="section faq" id="faq"><div class="wrap article">
+  <span class="eyebrow">FAQ</span>
+  <h2>GPSR for small online sellers</h2>
+  <details><summary>What is GPSR?</summary><p>The General Product Safety Regulation (EU) 2023/988 replaced the old General Product Safety Directive on 13 December 2024. It applies to consumer products sold to people in the EU — including online sales from outside the EU.</p></details><details><summary>I'm a US/UK/Asian seller. Do I really need an EU responsible person?</summary><p>If the manufacturer is not established in the EU, GPSR Art. 16 says the product can only be placed on the EU market if there is an economic operator established in the EU responsible for it (for example an importer, an authorised representative or a fulfilment service provider). Their name, postal and electronic address go on the product, packaging, parcel or accompanying document, and in your online listing.</p></details><details><summary>What must my online listing show?</summary><p>Art. 19: the manufacturer's name, registered trade name or trademark, postal and electronic address; the EU responsible person's details where the manufacturer is outside the EU; information to identify the product (picture, type, other identifier); and warnings or safety information, in a language consumers in that Member State easily understand.</p></details><details><summary>How do I import the Shopify CSV?</summary><p>First create product metafield definitions (Settings → Custom data → Products) with namespace &quot;custom&quot; and the keys in the CSV header (e.g. gpsr_manufacturer_name). Then Products → Import, tick &quot;Overwrite products with matching handles&quot;. Replace the handle with your real product handle, and test on one product first after exporting a backup.</p></details><details><summary>Does using this tool make me compliant?</summary><p>No tool can do that on its own. GPSR also requires a risk analysis, technical documentation, accident reporting and cooperation with authorities. This tool helps you prepare the label and listing information and shows what's missing. It is not legal advice.</p></details><details><summary>Is my data stored?</summary><p>No. Everything runs in your browser. Your last entries are kept in your browser's local storage so you don't lose them; use Reset to clear.</p></details>
+  <p class="disclaimer" style="margin-top:20px">GPSR Shield is an information and formatting aid. It is not legal advice and does not certify compliance. Check the regulations that apply to your product, or ask a qualified adviser. Article references are to Regulation (EU) 2023/988 unless stated.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap foot">
+  <div>
+    <a class="studio-badge" href="https://enzopk.gumroad.com/l/founderos?utm_source=gpsr-shield&amp;utm_medium=site&amp;utm_campaign=gpsr-etsy-sellers&amp;utm_content=footer-badge"><span class="dot"></span>Built &amp; operated autonomously by FounderOS — Get the exact Claude Code Blueprint →</a>
+    <p style="margin:14px 0 0">© 2026 Bunai Studio · <a href="../">GPSR Shield</a></p>
+  </div>
+  <nav class="foot-links" aria-label="GPSR guides"><a href="../gpsr-candles-home-fragrance/">candles &amp; home fragrance</a><a href="../gpsr-apparel-textiles/">clothing &amp; textile products</a><a href="../gpsr-wooden-toys/">Wooden toys</a><a href="../gpsr-jewelry-accessories/">jewelry &amp; accessories</a><a href="../gpsr-cosmetics-skincare/">Cosmetics &amp; skincare</a><a href="../gpsr-electronics/">Electronics to the EU</a><a href="../gpsr-home-kitchen/">Home &amp; kitchen goods to the EU</a><a href="../gpsr-ceramics-pottery/">Ceramics &amp; pottery to the EU</a><a href="../gpsr-etsy-sellers/">Etsy GPSR</a><a href="../gpsr-amazon-eu-sellers/">Amazon EU GPSR</a><a href="../gpsr-uk-sellers-eu-northern-ireland/">GPSR for UK sellers shipping to the EU &amp; Northern Ireland</a><a href="../gpsr-pet-products/">Pet products to the EU</a><a href="../eu-parcel-duty-calculator/">EU parcel duty calculator</a></nav>
+</div></footer>
+
+<div id="print-root"></div>
+<script type="module" src="../assets/app.js"></script>
+</body>
+</html>

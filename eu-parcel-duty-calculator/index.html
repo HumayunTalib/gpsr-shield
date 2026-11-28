@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EU €3 Parcel Duty &amp; VAT Calculator for UK and US Sellers (2026) | GPSR Shield</title>
+<meta name="description" content="Free calculator for the EU's €3-per-item duty on parcels up to €150 (from 1 July 2026), the €2 handling fee and import VAT, with or without IOSS. See what an EU customer pays and the price that keeps your margin.">
+<link rel="canonical" href="https://humayuntalib.github.io/gpsr-shield/eu-parcel-duty-calculator/">
+<meta property="og:title" content="EU €3 Parcel Duty &amp; VAT Calculator for UK and US Sellers (2026) | GPSR Shield">
+<meta property="og:description" content="Free calculator for the EU's €3-per-item duty on parcels up to €150 (from 1 July 2026), the €2 handling fee and import VAT, with or without IOSS. See what an EU customer pays and the price that keeps your margin.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://humayuntalib.github.io/gpsr-shield/eu-parcel-duty-calculator/">
+<meta name="theme-color" content="#1F2A44">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231F2A44' stroke='%23C8A24A' stroke-width='2'/%3E%3Ctext x='16' y='20' font-size='10' font-family='monospace' fill='%23C8A24A' text-anchor='middle'%3EEU%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.lines{width:100%;border-collapse:collapse;margin-bottom:8px}
+.lines th{font:600 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 6px 6px 0}
+.lines td{padding:0 6px 8px 0;vertical-align:top}
+.lines input{width:100%;min-height:38px}
+.lines td.x{width:28px}
+.lines .rm{border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer;line-height:36px}
+.res{width:100%;border-collapse:collapse;font-size:14px}
+.res td{padding:7px 0;border-bottom:1px solid var(--line)}
+.res td.v{text-align:right;font-family:var(--mono)}
+.res tr.tot td{font-weight:700;border-bottom:0;padding-top:10px}
+.big{font:700 28px/1.1 var(--mono);color:var(--navy);margin:2px 0 4px}
+.flag{padding:10px 12px;border-radius:var(--r);font-size:13px;margin-top:12px;background:var(--amber-bg);color:var(--amber)}
+.flag.ok{background:var(--green-bg);color:var(--green)}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:600;margin:4px 0 12px}
+.chk input{margin-top:3px}
+@media (max-width:560px){.lines th:nth-child(4),.lines td:nth-child(4){display:none}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"EU Parcel Duty & VAT Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://humayuntalib.github.io/gpsr-shield/eu-parcel-duty-calculator/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What changed on 1 July 2026?","acceptedAnswer":{"@type":"Answer","text":"Council Regulation (EU) 2026/382 removed the duty relief for consignments worth €150 or less. Until 1 July 2028, B2C distance-sale parcels of up to €150 pay a flat €3 customs duty per item, whether or not you use IOSS. After that, normal duty rates are due to apply."}},{"@type":"Question","name":"What counts as one 'item'?","acceptedAnswer":{"@type":"Answer","text":"Goods with the same tariff classification count once. The Commission's examples: five T-shirts = €3; T-shirts plus a watch = €6. In the calculator, give lines the same 'tariff group' (e.g. the same HS code) to count them once."}},{"@type":"Question","name":"Is there also a handling fee?","acceptedAnswer":{"@type":"Answer","text":"The Commission's customs reform page lists a €2 Union handling fee on imported goods from 1 November 2026. Carriers decide how they pass it on, so the calculator lets you change it."}},{"@type":"Question","name":"Do I still pay VAT?","acceptedAnswer":{"@type":"Answer","text":"Yes. With IOSS you charge the destination country's VAT at checkout. Without IOSS, customs charges import VAT on delivery, and the taxable amount includes the duty and the transport cost (VAT Directive Art. 86). Most carriers add a clearance fee too."}},{"@type":"Question","name":"What about parcels over €150?","acceptedAnswer":{"@type":"Answer","text":"The flat €3 does not apply. Normal duty rates from TARIC apply, IOSS cannot be used and import VAT is due on entry. The calculator flags this rather than guessing a duty rate."}},{"@type":"Question","name":"What are product identifiers?","acceptedAnswer":{"@type":"Answer","text":"From 1 November 2026, import declarations for distance sales must carry product identifiers (codes C127, C128 and C129, or Y081 where no standard identifier exists). Ask your carrier which data it needs from you, such as HS code, a precise description, origin and EAN."}}]}</script>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="../"><span class="seal">EU</span>GPSR Shield <small>by Bunai Studio</small></a>
+  <nav><a href="#calc">Calculator</a><a href="#rules">The rules</a><a href="#kit">Pricing kit</a><a href="../">GPSR label tool</a></nav>
+</div></header>
+<main>
+<section class="intro"><div class="wrap">
+  <span class="eyebrow">Reg. (EU) 2026/382 · €3 per item since 1 Jul 2026 · €2 handling fee from 1 Nov 2026</span>
+  <h1>EU parcel duty &amp; VAT calculator for non-EU sellers</h1>
+  <p>Selling to EU customers from the UK, US or Asia? Parcels worth up to €150 now pay a flat €3 duty per item, plus a handling fee and VAT. Enter an order and see what the EU customer pays on top, and what to add to your price if you ship duties paid (DDP). Runs in your browser; nothing is uploaded.</p>
+</div></section>
+
+<div class="wrap"><div class="tool" id="calc">
+<form id="f" onsubmit="return false">
+  <fieldset><legend><span>Order</span><span class="n">01</span></legend>
+    <table class="lines"><thead><tr><th>Product</th><th>Qty</th><th>Unit price</th><th>Tariff group</th><th></th></tr></thead><tbody id="lines"></tbody></table>
+    <button class="btn-link" type="button" id="add">+ Add a product line</button>
+    <p class="hint" style="font-size:12px;color:var(--muted);margin:8px 0 0">Unit price excluding VAT, in your currency. Lines with the same <b>tariff group</b> (e.g. the same HS code) count as one item for the €3 duty.</p>
+  </fieldset>
+  <fieldset><legend><span>Shipping &amp; currency</span><span class="n">02</span></legend>
+    <div class="row">
+      <label class="f">Your currency<select id="cur"><option value="GBP">GBP £</option><option value="USD">USD $</option><option value="EUR">EUR €</option></select></label>
+      <label class="f">1 unit = how many € <span class="hint">Use today's rate</span><input class="mono" id="fx" type="number" step="0.0001" min="0"></label>
+    </div>
+    <div class="row">
+      <label class="f">Shipping you charge<input class="mono" id="ship" type="number" step="0.01" min="0" value="6"></label>
+      <label class="f">Destination<select id="country"></select></label>
+    </div>
+  </fieldset>
+  <fieldset><legend><span>VAT &amp; fees</span><span class="n">03</span></legend>
+    <label class="chk"><input type="checkbox" id="ioss" checked> I'm registered for IOSS and charge EU VAT at checkout</label>
+    <div class="row">
+      <label class="f">VAT rate %<span class="hint">Standard rate; edit for reduced-rate goods</span><input class="mono" id="vat" type="number" step="0.1" min="0"></label>
+      <label class="f">Handling fee €<span class="hint">Commission: €2 from 1 Nov 2026</span><input class="mono" id="hf" type="number" step="0.01" min="0" value="2"></label>
+    </div>
+    <label class="f">Carrier clearance fee € (customer pays on delivery)<span class="hint">Only if you don't use IOSS. Check your carrier's tariff.</span><input class="mono" id="cf" type="number" step="0.01" min="0" value="0"></label>
+  </fieldset>
+</form>
+
+<aside class="pane" aria-label="Result">
+  <div class="card">
+    <div class="card-h"><span>Result</span><span class="mono" id="items">—</span></div>
+    <div class="card-b">
+      <div style="font-size:12px;color:var(--muted)">Customer pays on delivery if you ship without duties paid</div>
+      <div class="big" id="extra">—</div>
+      <table class="res"><tbody id="res"></tbody></table>
+      <div id="flag" class="flag"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-h"><span>To ship duties paid (DDP)</span></div>
+    <div class="card-b">
+      <div style="font-size:12px;color:var(--muted)">Add this to the order to keep your margin</div>
+      <div class="big" id="ddp">—</div>
+      <p style="font-size:13px;margin:6px 0 0" id="ddp-note"></p>
+    </div>
+  </div>
+</aside>
+</div></div>
+
+<section class="section" id="rules"><div class="wrap article">
+  <span class="eyebrow">What changed</span>
+  <h2>The EU low-value parcel rules, in plain English</h2>
+  <table><thead><tr><th>Rule</th><th>Source</th><th>What it means for you</th></tr></thead><tbody>
+    <tr><td>€3 customs duty per item on parcels up to €150, 1 Jul 2026 – 1 Jul 2028</td><td class="mono">Council Reg. (EU) 2026/382</td><td>Applies to B2C distance sales whatever the VAT scheme, IOSS included. Same tariff classification = one item.</td></tr>
+    <tr><td>€2 Union handling fee</td><td class="mono">Commission, EU Customs Reform (from 1 Nov 2026)</td><td>Charged on imported goods. How it reaches you or your customer depends on the carrier.</td></tr>
+    <tr><td>Product identifiers in import declarations</td><td class="mono">Commission guidance (C127/C128/C129, Y081)</td><td>From 1 Nov 2026 a generic description is not enough. Give your carrier HS code, precise description, origin and EAN where you have one.</td></tr>
+    <tr><td>Import VAT base includes duty and transport</td><td class="mono">VAT Directive 2006/112/EC Art. 86</td><td>Without IOSS the customer pays VAT on goods + shipping + duty, usually plus a carrier fee.</td></tr>
+    <tr><td>IOSS only up to €150</td><td class="mono">VAT e-commerce package (2021)</td><td>Above €150, normal duty rates apply and VAT is paid at import.</td></tr>
+  </tbody></table>
+  <h2>FAQ</h2>
+  <details><summary>What changed on 1 July 2026?</summary><p>Council Regulation (EU) 2026/382 removed the duty relief for consignments worth €150 or less. Until 1 July 2028, B2C distance-sale parcels of up to €150 pay a flat €3 customs duty per item, whether or not you use IOSS. After that, normal duty rates are due to apply.</p></details><details><summary>What counts as one 'item'?</summary><p>Goods with the same tariff classification count once. The Commission's examples: five T-shirts = €3; T-shirts plus a watch = €6. In the calculator, give lines the same 'tariff group' (e.g. the same HS code) to count them once.</p></details><details><summary>Is there also a handling fee?</summary><p>The Commission's customs reform page lists a €2 Union handling fee on imported goods from 1 November 2026. Carriers decide how they pass it on, so the calculator lets you change it.</p></details><details><summary>Do I still pay VAT?</summary><p>Yes. With IOSS you charge the destination country's VAT at checkout. Without IOSS, customs charges import VAT on delivery, and the taxable amount includes the duty and the transport cost (VAT Directive Art. 86). Most carriers add a clearance fee too.</p></details><details><summary>What about parcels over €150?</summary><p>The flat €3 does not apply. Normal duty rates from TARIC apply, IOSS cannot be used and import VAT is due on entry. The calculator flags this rather than guessing a duty rate.</p></details><details><summary>What are product identifiers?</summary><p>From 1 November 2026, import declarations for distance sales must carry product identifiers (codes C127, C128 and C129, or Y081 where no standard identifier exists). Ask your carrier which data it needs from you, such as HS code, a precise description, origin and EAN.</p></details>
+  <p class="disclaimer" style="margin-top:20px">This calculator is an estimate to help you price. It is not tax or legal advice, and your carrier's charges may differ. Sources: <a href="https://eur-lex.europa.eu/eli/reg/2026/382/oj/eng" rel="noopener">Reg. (EU) 2026/382</a>, <a href="https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en" rel="noopener">Commission guidance</a>, <a href="https://taxation-customs.ec.europa.eu/Customs/eu-Customs-Reform_en" rel="noopener">EU Customs Reform</a>, <a href="https://commission.europa.eu/news-and-media/news/ensuring-fairness-and-safety-eur3-customs-duty-low-value-parcels-2026-06-29_en" rel="noopener">Commission news, 29 Jun 2026</a>. VAT rates last checked 25 Nov 2026.</p>
+</div></section>
+
+<section class="section" id="kit"><div class="wrap">
+  <div class="offer">
+    <div>
+      <span class="eyebrow" style="color:var(--brass)">EU Parcel Pricing Kit 2026</span>
+      <h2>Price your whole catalogue for EU customers</h2>
+      <p>The calculator handles one order. The kit handles every SKU and every EU country:</p>
+      <ul>
+        <li>Offline bulk pricing tool: load one CSV of SKUs, get the duties-paid price per country, with or without IOSS</li>
+        <li>Copy-ready EU shipping policy, checkout and product-page wording (duties paid and duties on delivery versions)</li>
+        <li>Reply templates for customers asking about delivery charges</li>
+        <li>DDP vs DAP and IOSS decision guide, and a product-identifier data sheet for your carrier</li>
+      </ul>
+    </div>
+    <div>
+      <div class="price">$19<small>one-time · instant download</small></div>
+      <p style="margin:12px 0 16px">Delivered by Gumroad. Runs offline in any browser.</p>
+      <a class="btn primary" href="https://enzopk.gumroad.com/l/eu-parcel-pricing?utm_source=gpsr-shield&amp;utm_medium=site&amp;utm_campaign=eu-parcel-duty-calculator&amp;utm_content=buy">Get the pricing kit →</a>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap foot">
+  <div><p style="margin:0">© 2026 Bunai Studio · <a href="../">GPSR Shield</a> · <a href="../gpsr-uk-sellers-eu-northern-ireland/">GPSR for UK sellers</a></p></div>
+</div></footer>
+<script type="module">
+import { calcParcel, VAT_RATES } from "../assets/eu-duty-core.js";
+const $ = (id) => document.getElementById(id);
+const FX = { GBP: 1.15, USD: 0.86, EUR: 1 };
+const SYM = { GBP: "£", USD: "$", EUR: "€" };
+const eur = (n) => n == null ? "—" : "€" + n.toFixed(2);
+const c = $("country");
+for (const [k, [name]] of Object.entries(VAT_RATES).sort((a, b) => a[1][0].localeCompare(b[1][0]))) c.add(new Option(name, k));
+c.value = "DE";
+const tb = $("lines");
+function addLine(v = {}) {
+  const tr = document.createElement("tr");
+  tr.innerHTML = '<td><input type="text" maxlength="60" placeholder="e.g. Candle 200 g"></td><td style="width:64px"><input class="mono" type="number" min="0" step="1" value="1"></td><td style="width:96px"><input class="mono" type="number" min="0" step="0.01"></td><td style="width:110px"><input class="mono" type="text" maxlength="12" placeholder="HS code"></td><td class="x"><button class="rm" type="button" aria-label="Remove line">×</button></td>';
+  const [n, q, p, g] = tr.querySelectorAll("input");
+  n.value = v.name || ""; q.value = v.qty ?? 1; p.value = v.price ?? ""; g.value = v.group || "";
+  tr.querySelector(".rm").onclick = () => { tr.remove(); run(); };
+  tb.appendChild(tr);
+}
+addLine({ name: "Soy candle 200 g", qty: 2, price: 18, group: "3406" });
+addLine({ name: "Wax melts", qty: 1, price: 6, group: "3406" });
+function setDefaults() { $("fx").value = FX[$("cur").value]; }
+$("cur").onchange = () => { setDefaults(); run(); };
+c.onchange = () => { $("vat").value = VAT_RATES[c.value][1]; run(); };
+setDefaults(); $("vat").value = VAT_RATES[c.value][1];
+$("add").onclick = () => { addLine(); run(); };
+document.addEventListener("input", run);
+$("ioss").onchange = run;
+function run() {
+  const lines = [...tb.rows].map((r) => { const [n, q, p, g] = r.querySelectorAll("input"); return { name: n.value, qty: +q.value, unitPrice: +p.value, group: g.value }; });
+  const cur = $("cur").value, fx = +$("fx").value || 1;
+  const r = calcParcel({ lines, shipping: +$("ship").value, fxToEur: fx, country: c.value, vatRate: $("vat").value, ioss: $("ioss").checked, handlingFee: $("hf").value, carrierFee: $("cf").value });
+  $("items").textContent = r.tariffItems + (r.tariffItems === 1 ? " tariff item" : " tariff items");
+  const rows = [["Goods value", eur(r.goodsEur)], ["Shipping", eur(r.shippingEur)], ["€3 duty × " + r.tariffItems, eur(r.duty)], ["Handling fee", eur(r.handlingFee)], ["VAT " + r.vatRate + "% (" + r.vatCollectedBy + ")", eur(r.vat)]];
+  if (!$("ioss").checked && r.lowValue) rows.push(["Carrier clearance fee", eur(r.carrierFee)]);
+  $("res").innerHTML = rows.map(([a, b]) => "<tr><td>" + a + "</td><td class='v'>" + b + "</td></tr>").join("");
+  $("extra").textContent = r.lowValue ? eur(r.extraForCustomer) : "Normal duty";
+  const fl = $("flag");
+  fl.className = "flag" + (r.lowValue ? " ok" : "");
+  fl.textContent = r.notes.join(" ");
+  if (r.lowValue) {
+    const local = r.ddpAddOn / fx;
+    $("ddp").textContent = eur(r.ddpAddOn) + (cur !== "EUR" ? "  ≈ " + SYM[cur] + local.toFixed(2) : "");
+    $("ddp-note").textContent = $("ioss").checked ? "Duty + handling fee. The VAT is already in what the customer pays you at checkout." : "Duty + handling fee + import VAT, if you pay them for the customer. You would also need an arrangement with your carrier to ship DDP.";
+  } else { $("ddp").textContent = "—"; $("ddp-note").textContent = "Above €150: look up the duty rate for your HS code in TARIC."; }
+}
+run();
+</script>
+</body>
+</html>
